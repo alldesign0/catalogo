@@ -561,7 +561,7 @@ function open(slug,push=true){
   $('#pWa').style.display=stock(p)==='out'?'none':''; $('#pWa').innerHTML=waSvg+'Consultar por WhatsApp'; $('#pWa').href=stock(p)==='out'?waLink('Hola, vi que '+label(p)+' está agotado. ¿Tendrán reposición o algo similar?'):waLink('Hola, me interesa '+label(p)+' ('+(new Set(avail(p).map(v=>v.price)).size>1?'desde ':'')+money(Math.min(...avail(p).map(v=>v.price)))+'). ¿Está disponible?');
   $('#pNote').textContent=p.artist?'Obra original y única. Precio en soles. Consulta disponibilidad y visítala en tienda.':'Imágenes referenciales: tonos y acabados pueden variar ligeramente. Precios en soles. Disponibilidad y otros acabados: consulta en tienda.';
   selV=hasSw(p)?avail(p)[0]:null; setV(selV,true);
-  if(selV) p.imgs.forEach(m=>{const i=new Image();i.src=m.src});
+  if(selV&&typeof Image!=='undefined') p.imgs.forEach(m=>{const i=new Image();i.src=m.src});
   const pv=ord[(oi-1+ord.length)%ord.length], nx=ord[(oi+1)%ord.length];
   $('#prev span').textContent=pv.name; $('#prev').dataset.s=pv.slug;
   $('#next span').textContent=nx.name; $('#next').dataset.s=nx.slug;
