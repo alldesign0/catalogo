@@ -279,6 +279,26 @@ footer nav a:hover{color:#fff}
 .vers td small{display:block;color:var(--mute);font-size:12.5px;margin-top:2px}
 .vers td.m{color:var(--mute);padding-right:12px;white-space:nowrap}
 @media (max-width:899px){.card .pr{font-size:13px;margin-top:6px}.vers td.m{white-space:normal}}
+/* buscador */
+.srch{position:fixed;inset:0;z-index:58;background:#fff;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.srch.open{opacity:1;visibility:visible;transition:opacity .3s}
+.qbar{display:flex;align-items:center;gap:14px;height:68px}
+.qbar .qi{width:20px;height:20px;flex:none;color:var(--mute)}
+.qbar input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:clamp(17px,2vw,22px);font-weight:300;letter-spacing:.01em;color:var(--ink);padding:0}
+.qbar input::placeholder{color:#a8a8a8}
+.qbar input::-webkit-search-cancel-button{display:none}
+.qbar button{width:44px;height:44px;display:grid;place-items:center;flex:none}
+.qbar button svg{width:16px;height:16px}
+.sbox{padding-block:22px 80px}
+.flt{display:flex;flex-direction:column;gap:14px;margin-bottom:34px}
+.fg{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fg>span{flex:0 0 78px;font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.fg button{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border:1px solid var(--hair);border-radius:999px;color:var(--mute);transition:background .2s,color .2s,border-color .2s}
+.fg button:hover{border-color:var(--ink);color:var(--ink)}
+.fg button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+@media (max-width:899px){.fg{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gl) * -1) calc(var(--gr) * -1);padding-inline:var(--gl) var(--gr)}.fg::-webkit-scrollbar{display:none}.fg>span{flex:0 0 auto;margin-right:4px}.fg button{flex:none}}
+.snone{text-align:center;padding:60px 0;color:var(--mute)}
+.snone p{margin:0 0 20px}
 /* animaciones suaves */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rd,0s)}
 .rv.in{opacity:1;transform:none}
@@ -297,7 +317,7 @@ footer nav a:hover{color:#fff}
   <div class="wrap bar">
     <button class="burger" id="burger" aria-label="Abrir menú de categorías" aria-expanded="false" aria-controls="drawer"><i></i><i></i><i></i><span>Categorías</span></button>
     <a class="brand" href="#inicio" aria-label="All Design Store, inicio"><img src="isotipo-negro.svg" alt="" width="26" height="27"><span>ALL DESIGN STORE</span></a>
-    <span class="soc"><a href="https://www.instagram.com/alldesign.store/" target="_blank" rel="noopener" aria-label="Instagram @alldesign.store"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@alldesign.store" target="_blank" rel="noopener" aria-label="TikTok @alldesign.store"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a><a class="wa-top" id="waTop" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg><span>WhatsApp</span></a></span>
+    <span class="soc"><a href="#buscar" id="sopen" aria-label="Buscar en el catálogo"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></a><a href="https://www.instagram.com/alldesign.store/" target="_blank" rel="noopener" aria-label="Instagram @alldesign.store"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@alldesign.store" target="_blank" rel="noopener" aria-label="TikTok @alldesign.store"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a><a class="wa-top" id="waTop" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg><span>WhatsApp</span></a></span>
   </div>
 </header>
 <div class="scrim" id="scrim"></div>
@@ -307,6 +327,18 @@ footer nav a:hover{color:#fff}
   <a class="dwa" id="waDrawer" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
   <div class="dsoc"><a href="https://www.instagram.com/alldesign.store/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>@alldesign.store</a><a href="https://www.tiktok.com/@alldesign.store" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>@alldesign.store</a></div>
 </aside>
+<div class="srch" id="srch" role="dialog" aria-modal="true" aria-label="Buscar en el catálogo" aria-hidden="true">
+  <div class="sbar"><div class="wrap qbar">
+    <svg class="qi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+    <input id="q" type="search" placeholder="Buscar por nombre, material o color" autocomplete="off" aria-label="Buscar">
+    <button id="sclose" aria-label="Cerrar búsqueda"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+  </div></div>
+  <div class="wrap sbox">
+    <div class="flt" id="flt"></div>
+    <div class="grid" id="sres"></div>
+    <div class="snone" id="snone" hidden><p>No encontramos piezas con esos filtros.</p><button id="sreset" class="btn line">Ver todo</button></div>
+  </div>
+</div>
 <a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#"/></svg></a>
 
 <main id="inicio">
@@ -467,7 +499,7 @@ function card(p,lazy=true){
 $('#cats').innerHTML=GROUPS.map((g,i)=>{const items=byGroup(g), cs=live(g);
   const grid=cs.map(c=>{const it=byCat(c);return '<div class="subh" id="'+c.id+'"><span>'+c.name+'</span>'+(it.length?'':'<em>Próximamente</em>')+'</div>'+(it.length?it.map(p=>card(p)).join(''):'<a class="soon" target="_blank" rel="noopener" href="'+waLink('Hola, quisiera información sobre '+c.name.toLowerCase()+'.')+'"><span>Muy pronto: nuevas piezas de '+c.name.toLowerCase()+'.</span><b>Consultar por WhatsApp</b></a>')}).join('');
   return '<section class="cat" id="'+g.id+'"><div class="wrap">'+
-   '<div class="ch"><div class="txt"><div class="ey" style="color:var(--mute)">'+pad(i+1)+' / '+pad(GROUPS.length)+'</div><h2>'+g.name+'</h2><p>'+g.desc+'</p><div class="k"><span>'+cs.map(c=>'<a href="#'+c.id+'" style="text-decoration:underline;text-underline-offset:3px">'+c.name+'</a>').join(' · ')+'</span></div></div>'+
+   '<div class="ch"><div class="txt"><h2>'+g.name+'</h2><p>'+g.desc+'</p><div class="k"><span>'+cs.map(c=>'<a href="#'+c.id+'" style="text-decoration:underline;text-underline-offset:3px">'+c.name+'</a>').join(' · ')+'</span></div></div>'+
    '<figure'+(g.op?' style="--op:'+g.op+'"':'')+(g.pk?' class="pkf"':'')+'><img src="'+g.img+'" alt="'+esc(g.cap)+'" loading="lazy"><figcaption>'+esc(g.cap)+'</figcaption></figure></div>'+
    '<div class="grid">'+grid+'</div></div></section>'}).join('');
 
@@ -482,7 +514,7 @@ function open(slug,push=true){
   $('#pCat').textContent=type(p)+' · '+c.group.name;
   $('#pName').textContent=p.name;
   $('#pLead').textContent=p.desc;
-  $('#cnt').textContent=pad(oi+1)+' / '+pad(ord.length);
+  
   { const st=stock(p), AV=avail(p), mn=Math.min(...AV.map(v=>v.price));
     $('#pPrice').innerHTML=st==='out'?'<b>Sold out</b>':(new Set(AV.map(v=>v.price)).size>1?'<small>Desde</small>':'')+'<b class="num">'+money(mn)+'</b>'; }
   const V=avail(p), multi=V.length>1;
@@ -553,6 +585,46 @@ function route(){const m=location.hash.match(/^#pieza-(.+)$/); if(m) open(decode
 addEventListener('popstate',route);
 if(/^#pieza-/.test(location.hash)) route();
 
+
+/* ---------- buscador y filtros ---------- */
+(function(){
+  const srch=$('#srch'), q=$('#q'), res=$('#sres');
+  const nz=t=>(t||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const MAT=[['Madera',/madera|nogal|roble|avellana|imbuia|cinamomo|chapad|laminad|tabaco|capuccino|nocce|pecan|tinte|wood/],
+    ['Tapizado',/tela|tapiz|tejido|boucle|terciopelo|tapizad|trama/],
+    ['Ratán y fibras',/ratan|esterilla|paja|fibra|cuerda|mimbre/],
+    ['Mármol y piedra',/marmol|piedra|sinteriz|terrazo|granito/],
+    ['Metal',/metal|fierro|acero|laton|bronce|champagne|dorad|gold/],
+    ['Cuero',/cuero/],['Vidrio',/vidrio|cristal/]];
+  const PRC=[['Hasta S/ 1,500',0,1500],['S/ 1,500 – 3,000',1500,3000],['S/ 3,000 – 6,000',3000,6000],['Más de S/ 6,000',6000,1e9]];
+  const TIP=[['Sillas',p=>p.cat==='Sillas'],['Butacas',p=>p.cat==='Butacas'],['Mesas',p=>p.cat==='Mesas'],['Almacenaje',p=>p.cat==='Consolas'||p.cat==='Carros'],['Arte',p=>p.cat==='Arte']];
+  const txt=p=>nz([p.name,p.desc,p.cat,p.sub,p.finish,p.artist,typeof type==='function'?type(p):'',...Object.values(p.spec||{}),...p.versions.flatMap(v=>[v.label,v.finish,v.size])].join(' '));
+  const price=p=>Math.min(...avail(p).map(v=>v.price||0));
+  const idx=D.map(p=>({p,t:txt(p),m:MAT.filter(([,r])=>r.test(txt(p))).map(([n])=>n)}));
+  const st={tip:null,mat:null,prc:null};
+  const grp=(key,label,list)=>'<div class="fg" data-k="'+key+'"><span>'+label+'</span>'+list.map(([n])=>'<button type="button" data-v="'+esc(n)+'">'+esc(n)+'</button>').join('')+'</div>';
+  $('#flt').innerHTML=grp('tip','Tipo',TIP)+grp('mat','Material',MAT)+grp('prc','Precio',PRC);
+  $('#flt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const k=b.parentNode.dataset.k,v=b.dataset.v;st[k]=st[k]===v?null:v;
+    b.parentNode.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v===st[k]));run()});
+  function run(){
+    const words=nz(q.value).split(/\s+/).filter(Boolean);
+    let out=idx.filter(o=>words.every(w=>o.t.includes(w)));
+    if(st.tip){const f=TIP.find(t=>t[0]===st.tip)[1];out=out.filter(o=>f(o.p))}
+    if(st.mat) out=out.filter(o=>o.m.includes(st.mat));
+    if(st.prc){const r=PRC.find(t=>t[0]===st.prc);out=out.filter(o=>stock(o.p)!=='out'&&price(o.p)>=r[1]&&price(o.p)<r[2])}
+    out.sort((a,b)=>(stock(a.p)==='out')-(stock(b.p)==='out'));
+    res.innerHTML=out.map(o=>card(o.p)).join('');
+    $('#snone').hidden=out.length>0;
+  }
+  let t; q.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(run,120)});
+  $('#sreset').onclick=()=>{q.value='';st.tip=st.mat=st.prc=null;document.querySelectorAll('#flt button').forEach(b=>b.classList.remove('on'));run();q.focus()};
+  function sopen(){srch.classList.add('open');srch.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';run();setTimeout(()=>q.focus(),60)}
+  function sclose(){srch.classList.remove('open');srch.setAttribute('aria-hidden','true');if(!sheet.classList.contains('open'))document.documentElement.style.overflow=''}
+  $('#sopen').addEventListener('click',e=>{e.preventDefault();sopen()});
+  $('#sclose').onclick=sclose;
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&srch.classList.contains('open')&&!sheet.classList.contains('open'))sclose()});
+  if(typeof MutationObserver!=='undefined')new MutationObserver(()=>{if(!sheet.classList.contains('open')&&srch.classList.contains('open'))document.documentElement.style.overflow='hidden'}).observe(sheet,{attributes:true,attributeFilter:['class']});
+})();
 /* ---------- animaciones ---------- */
 (function(){ if(typeof MutationObserver==='undefined'||!document.body) return;
   const imgSel='.card .ph img,.tile .ph img,.cat figure img,#showroom figure img';
