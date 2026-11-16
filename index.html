@@ -605,7 +605,7 @@ if(/^#pieza-/.test(location.hash)) route();
   const idx=D.map(p=>({p,t:txt(p),m:mats(p)}));
   const st={tip:null,mat:null,prc:null};
   const grp=(key,label,list)=>'<div class="fg" data-k="'+key+'"><span>'+label+'</span>'+list.map(([n])=>'<button type="button" data-v="'+esc(n)+'">'+esc(n)+'</button>').join('')+'</div>';
-  $('#flt').innerHTML=grp('tip','Tipo',TIP)+grp('mat','Material',MAT)+grp('prc','Precio',PRC);
+  $('#flt').innerHTML=grp('tip','Tipo',TIP)+grp('prc','Precio',PRC);
   $('#flt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const k=b.parentNode.dataset.k,v=b.dataset.v;st[k]=st[k]===v?null:v;
     b.parentNode.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v===st[k]));run()});
   function run(){
