@@ -453,7 +453,7 @@ const SIN_TELAS=['tay','macilca'];
 D.forEach(p=>{
   const off=APAGADAS[p.slug]||[];
   if(off.length){ p.versions=p.versions.filter(v=>!off.includes(v.v)); p.imgs=p.imgs.filter(m=>!m.v||[].concat(m.v).some(k=>!off.includes(k))); }
-  if(SIN_TELAS.includes(p.slug)){ const v=p.versions[0]; p.versions=[Object.assign({},v,{label:'Estándar',v:undefined,sold:p.versions.every(x=>x.sold)})]; }
+  if(SIN_TELAS.includes(p.slug)){ const v=p.versions[0]; p.versions=[Object.assign({},v,{label:'Estándar',v:undefined,sold:p.versions.every(x=>x.sold),code:[...new Set(p.versions.map(x=>x.code).filter(Boolean))].join(' / ')||undefined})]; }
   if(p.versions.length===1){ p.imgs.forEach(m=>delete m.v); }
 });
 const WA='51996009474';
