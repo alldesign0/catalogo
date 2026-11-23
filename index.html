@@ -579,7 +579,7 @@ function open(slug,push=true){
   if(med) rows.push(['Medidas',med]); else if(!multi) rows.push(['Medidas','Consultar']); else if(hasOpt(p)) rows.push(['Medidas',fmt(V[0].size)||'Consultar','rMed']);
   if(hasOpt(p)&&V.some(v=>v.finish)) rows.push([sp.acabados?'Detalles':'Acabados',V[0].finish||'—','rFin']);
   if(p.spec){ if(sp.asiento) rows.push(['Alto de asiento',sp.asiento]); for(const [k,l] of [['material','Material'],['estructura','Estructura'],['respaldo','Respaldo'],['tela','Tela'],['base','Base'],['tablero','Tablero'],['acabados','Acabados'],['foco','Foco']]) if(sp[k]) rows.push([l,sp[k]]);
-    if(!multi&&p.versions.length>1) rows.unshift(['Versión',V[0].label+(V[0].finish?' · '+V[0].finish:'')]); }
+    if(!multi&&p.versions.length>1&&!hasOpt(p)) rows.unshift(['Versión',V[0].label+(V[0].finish?' · '+V[0].finish:'')]); }
   else {
     const fin=[p.finish,!multi&&!['Estándar','Obra única','Base','Tablero + base'].includes(V[0].label)?V[0].label+(V[0].finish?' · '+V[0].finish:''):(!multi&&V[0].finish?V[0].finish:null)].filter(Boolean).join(' · ');
     if(fin&&!(p.artist&&fin===p.finish&&false)) rows.push([p.artist?'Técnica':'Acabados',fin]);
